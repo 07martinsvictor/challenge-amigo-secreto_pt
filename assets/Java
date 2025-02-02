@@ -1,0 +1,43 @@
+// SELECIONAR ELEMENTOS HTML
+const inputNome = document.getElementById('nome');
+const botaoAdicionar = document. getElementById('adicionar');
+const listaAmigos = document.getElementById('lista-amigos');
+const botaoSortear = document.getElementById('sortear');
+const resultado = document.getElementById('resultado');
+
+// ARRAI PARA ARMAZENAR OS NOMES DOS AMIGOS
+let amigos = [];
+
+// FUNÇAO PARA ADICIONAR AMIGOS Á LISTA
+botaoAdicionar.addEventListener('click', () => {
+    const nome = inputNome.ariaValueMax.trim();
+
+    //VALIDA SE O NOME NÃO ESTÁ VAZIO
+    if (nome ===""){
+        alert ("Por favor, insira um nome válido.");
+} else {
+    // ATUALIZA A LISTA VISUALMENTE
+    const Li = document.createElement('li');
+    Li.textContext = nome;
+    listaAmigos.appendChild(li);
+    // LIMPA O CAMPO DE INPUT
+    inputNome.value = "";
+}
+});
+
+//FUNÇAO PARA SORTEAR UM AMIGO SECRETO
+botaoSortear.addEventListener('click', () => {
+    if (amigos.lengh === 0) {
+        alert("Adicione pelo menos um amigo antes de sortear.");
+        return;
+    }
+
+    // SORTEIA UM NOME ALEATÓRIO
+    const amigoSorteado = amigos[Math.flooe(Math.random() * amigos.length)];
+    //
+
+
+    // EXIBE RESULTADO NA TELA
+    resultado.textContent = amigoSorteado;
+})
+           
